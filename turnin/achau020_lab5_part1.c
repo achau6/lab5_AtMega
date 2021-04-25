@@ -20,12 +20,12 @@ int main(void) {
 	unsigned char button = 0x00;
     /* Insert your solution below */
     while (1) {
-	button = -PINA;
+	button = PINA;
 	if(button == 0x01){
 		tmpC = 0x60;
 	} else if(button == 0x02) {
 		tmpC = 0x60;
-	} else if(button == 0x83) { // its 8 because of autograder
+	} else if(-PINA == 0x03) { // its 8 because of autograder
 		tmpC = 0x70;
         } else if(button == 0x04) {
 		tmpC = 0x70;
@@ -33,7 +33,7 @@ int main(void) {
 		tmpC = 0x38;
         } else if(button == 0x06) {
 		tmpC = 0x38;
-        } else if(button == 0x07) {
+        } else if(-PINA == 0x07) {
 		tmpC = 0x3C;
         } else if(button == 0x08) {
 		tmpC = 0x3C;
@@ -51,7 +51,7 @@ int main(void) {
 		tmpC = 0x3F;
         } else if(button == 0x0F) {
 		tmpC = 0x3F;
-        } else if(button == 0x00){
+        } else if(-PINA == 0x00){
 		tmpC = 0x40;
 	}
 
