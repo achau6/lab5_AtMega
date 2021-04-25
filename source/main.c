@@ -40,7 +40,7 @@ void Tick() {
 		break;
 
 		case Inc:	
-			if(count < 10 && press1 == false){
+			if(count < 9 && press1 == false){
 				state = Inc;
 			} else if(press1 == true && press2 == true){
 				state = Reset;
@@ -73,7 +73,7 @@ void Tick() {
 
 	switch(state) {
 		case Inc:
-			if((button == 0x01) && (count < 10) && (press1 == false)){
+			if((button == 0x01) && (count < 9) && (press1 == false)){
 				count ++;
 				press1 = true;
 			} 
