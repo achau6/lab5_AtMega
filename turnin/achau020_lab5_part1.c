@@ -20,7 +20,7 @@ int main(void) {
 	unsigned char button = 0x00;
     /* Insert your solution below */
     while (1) {
-	button = PINA;
+	button = -PINA;
 	if(button == 0x01){
 		tmpC = 0x60;
 	} else if(button == 0x02) {
