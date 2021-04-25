@@ -14,13 +14,13 @@
 # An example set of tests is shown below. It is important to note that these tests are not "unit tests" in 
 # that they are not ran in isolation but in the order shown and the state of the device is not reset or 
 # altered in between executions (unless preconditions are used).
-tests = [ {'description': 'PINA: 0xFF => PINC: 0x40',
-    'steps': [ {'inputs': [('PINA', 0xFF)], 'iterations': 5 } ],
-    'expected': [('PORTC', 0x40)],
-    },
-    {'description': 'PINA: 0x7C => PINC: 0x70',
+tests = [ {'description': 'PINA: 0x7C => PINC: 0x70',
     'steps': [ {'inputs': [('PINA', 0x7C)], 'iterations': 5 } ],
     'expected': [('PORTC', 0x70)],
+    },
+    {'description': 'PINA: 0xFF => PINC: 0x40',
+    'steps': [ {'inputs': [('PINA', 0xFF)], 'iterations': 5 } ],
+    'expected': [('PORTC', 0x40)],
     },
     {'description': 'PINA: 0xF8 => PINC: 0x3C',
     'steps': [ {'inputs': [('PINA', 0xF8)], 'iterations': 5 } ],
