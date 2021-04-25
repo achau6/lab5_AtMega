@@ -14,17 +14,25 @@
 # An example set of tests is shown below. It is important to note that these tests are not "unit tests" in 
 # that they are not ran in isolation but in the order shown and the state of the device is not reset or 
 # altered in between executions (unless preconditions are used).
-tests = [ {'description': 'PINA: 0x7C => PINC: 0x70',
-    'steps': [ {'inputs': [('PINA', 0x7C)], 'iterations': 5 } ],
-    'expected': [('PORTC', 0x70)],
+tests = [ {'description': 'PINA: 0x01,  => PORTC: 0x08, state: pressA1' ,
+    'steps': [ {'inputs': [('PINA', 0x01)], 'iterations':2}],
+    'expected': [('PORTC', 0x08)],
     },
-    {'description': 'PINA: 0xFF => PINC: 0x40',
-    'steps': [ {'inputs': [('PINA', 0xFF)], 'iterations': 5 } ],
-    'expected': [('PORTC', 0x40)],
+    {'description': 'PINA: 0x01 => PORTC: 0x08, state: pressA1',
+    'steps': [ {'inputs': [('PINA', 0x01)],'iterations': 2} ],
+    'expected': [('PORTC', 0x08)],
     },
-    {'description': 'PINA: 0xF8 => PINC: 0x3C',
-    'steps': [ {'inputs': [('PINA', 0xF8)], 'iterations': 5 } ],
-    'expected': [('PORTC', 0x3C)],
+    {'description': 'PINA: 0x00 => PORTC: 0x08, state: pressA1',
+    'steps': [ {'inputs': [('PINA', 0x00)],'iterations': 2} ],
+    'expected': [('PORTC', 0x08)],
+    },
+    {'description': 'PINA: 0x02 => PORTC: 0x07, state: pressA1',
+    'steps': [ {'inputs': [('PINA', 0x02)],'iterations': 2} ],
+    'expected': [('PORTC', 0x07)],
+    },
+    {'description': 'PINA: 0x01 => PORTC: 0x00, state: pressA1',
+    'steps': [ {'inputs': [('PINA', 0x01)],'iterations': 2} ],
+    'expected': [('PORTC', 0x00)],
     },
 
     ]
@@ -32,5 +40,5 @@ tests = [ {'description': 'PINA: 0x7C => PINC: 0x70',
 # Optionally you can add a set of "watch" variables these need to be global or static and may need
 # to be scoped at the function level (for static variables) if there are naming conflicts. The 
 # variables listed here will display everytime you hit (and stop at) a breakpoint
-#watch = ['<function>::<static-var>','PORTB']
+watch = ['press1', 'press2', 'state']
 
