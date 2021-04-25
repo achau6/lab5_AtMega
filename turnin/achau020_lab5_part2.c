@@ -19,7 +19,7 @@ bool press1 = false;
 bool press2 = false;
 
 void Tick() {
-	unsigned char button = PINA & 0x03;
+	unsigned char button = ~PINA & 0x03;
 	switch(state) {
 		case Start:
 			state = Init;
@@ -109,8 +109,6 @@ int main(void) {
     /* Insert DDR and PORT initializations */
 	DDRA = 0x00; PORTA = 0xFF;
 	DDRC = 0xFF; PORTC = 0x00;
-	unsigned char tmpC = 0x00;
-	unsigned char button = 0x00;
     /* Insert your solution below */
     state = Init;
     while (1) {
